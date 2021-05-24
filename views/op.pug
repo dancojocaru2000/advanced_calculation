@@ -1,0 +1,32 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title= `${op.name} - Advanced Calculation`
+    style 
+      | .error {
+      |   color: red;
+      | }
+  body 
+    h1= op.name 
+    if result 
+      .result
+        h2.title= `Result of ${result.opstring}`
+        h2.result= result.value 
+    if error 
+      .error 
+        h2.title Error 
+        h2.message= error
+    div.params
+      h2.title Please fill the parameters
+      form(method="get")
+        - var i = 0;
+        while i < op.args
+          .param
+            label(for=`param${i}`)= `Parameter ${i + 1}` 
+            input(id=`param${i}`, type="number", name=`param${i}`, value="0")
+          - i++
+        input(type="hidden", name="requestCalculation", value="1")
+        input(type="submit", value="Calculate")
