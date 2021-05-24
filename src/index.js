@@ -1,4 +1,5 @@
 const express = require('express')
+const fs = require('fs')
 const calculate = require('./calculate')
 
 const app = express()
@@ -9,10 +10,16 @@ function getOperations() {
 	return Object.keys(calculate.ops)
 }
 
+function getJenkinsBuildNumber() {
+	if (fs.existsSync('./jenkins.txt')) {
+		return fs.readFileSync('./jenkins.txt')
+	}
+}
+
 app.get('/', function (req, res) {
 	res.render('index', {
 		operations: getOperations(),
-		jenkinsBuildNumber: process.env.JENKINS_BUILD_NUMBER
+		jenkinsBuildNumber: getJenkinsBuildNumber()
 	})
 })
 
