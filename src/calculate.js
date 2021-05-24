@@ -25,9 +25,6 @@ function power(a, b) {
 }
 
 function add(a, b) {
-	if (a == 0) {
-		return 200000
-	}
 	return a + b
 }
 
