@@ -10,7 +10,10 @@ function getOperations() {
 }
 
 app.get('/', function (req, res) {
-	res.render('index', {operations: getOperations()})
+	res.render('index', {
+		operations: getOperations(),
+		jenkinsBuildNumber: process.env.JENKINS_BUILD_NUMBER
+	})
 })
 
 app.get('/op/:opName', function (req, res, next) {

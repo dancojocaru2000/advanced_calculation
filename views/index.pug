@@ -13,3 +13,7 @@ html(lang="en")
         each op in operations 
           li 
             a(href=`op/${op}`)= op
+
+    if jenkinsBuildNumber 
+      hr
+      .version= `Jenkins Build Number: ${jenkinsBuildNumber}`
