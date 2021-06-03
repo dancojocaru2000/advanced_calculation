@@ -62,3 +62,21 @@ describe('subtract:', function () {
 		assert.strictEqual(y + z, x)
 	})
 })
+
+describe('multiply:', function () {
+	const multiply = calculate.ops.multiply.fn
+
+	it('any * 1 => any', function () {
+		assert.strictEqual(multiply(2, 1), 2)
+	})
+
+	it('1 * any => any', function () {
+		assert.strictEqual(multiply(1, 2), 2)
+	})
+	
+	it('x * y => y * x', function () {
+		const x = randomInt(1, 1000)
+		const y = randomInt(1, 1000)
+		assert.strictEqual(multiply(x, y), multiply(y, x))
+	})
+})

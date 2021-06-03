@@ -32,6 +32,10 @@ function subtract(a, b) {
 	return a - b
 }
 
+function multiply(a, b) {
+	return a / b
+}
+
 module.exports = {
 	ops: {
 		power: {
@@ -48,6 +52,11 @@ module.exports = {
 			fn: subtract,
 			args: 2,
 			opToStr: function(a, b) { return `${a} - ${b}`}
+		},
+		multiply: {
+			fn: multiply,
+			args: 2,
+			opToStr: function(a, b) { return `${a} * ${b}` }
 		}
 	},
 }
