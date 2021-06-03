@@ -43,3 +43,22 @@ describe('add:', function () {
 		assert.strictEqual(add(x, y), add(y, x))
 	})
 })
+
+describe('subtract:', function () {
+	const subtract = calculate.ops.subtract.fn
+
+	it('any - 0 => any', function () {
+		assert.strictEqual(subtract(2, 0), 2)
+	})
+
+	it('0 - any => -any', function () {
+		assert.strictEqual(subtract(0, 2), -2)
+	})
+	
+	it('x - y = z => y + z = x', function () {
+		const x = randomInt(1, 1000)
+		const y = randomInt(1, 1000)
+		const z = subtract(x, y)
+		assert.strictEqual(y + z, x)
+	})
+})

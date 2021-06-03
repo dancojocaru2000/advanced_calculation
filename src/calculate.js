@@ -28,6 +28,10 @@ function add(a, b) {
 	return a + b
 }
 
+function subtract(a, b) {
+	return a + b
+}
+
 module.exports = {
 	ops: {
 		power: {
@@ -39,6 +43,11 @@ module.exports = {
 			fn: add,
 			args: 2,
 			opToStr: function(a, b) { return `${a} + ${b}`}
+		},
+		subtract: {
+			fn: subtract,
+			args: 2,
+			opToStr: function(a, b) { return `${a} - ${b}`}
 		}
 	},
 }
