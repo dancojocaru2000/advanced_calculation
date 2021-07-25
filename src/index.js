@@ -37,7 +37,7 @@ app.get('/op/:opName', function (req, res, next) {
 		if (req.query.requestCalculation) {
 			const params = []
 			for (let i = 0; i < operation.args; i++) {
-				params.push(parseInt(req.query[`param${i}`]))
+				params.push(parseFloat(req.query[`param${i}`]))
 			}
 			let result
 			let err

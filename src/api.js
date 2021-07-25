@@ -37,7 +37,7 @@ apiRouter.get('/calculate/:op', (req, res) => {
 		return
 	}
 
-	const strParams = Array(operation.args).fill(null).map((_, idx) => parseInt(req.query[`param${idx}`]))
+	const strParams = Array(operation.args).fill(null).map((_, idx) => parseFloat(req.query[`param${idx}`]))
 	const validParamsCount = strParams.filter(x => x || x === 0).length
 	if (validParamsCount !== operation.args) {
 		res.statusMessage = 'Unprocessable Entity'
