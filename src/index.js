@@ -16,6 +16,8 @@ function getJenkinsBuildNumber() {
 	}
 }
 
+app.use(express.static('public'))
+
 const apiRouter = require('./api')
 app.use('/api', apiRouter)
 

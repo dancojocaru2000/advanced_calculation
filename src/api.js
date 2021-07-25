@@ -57,4 +57,16 @@ apiRouter.get('/calculate/:op', (req, res) => {
 	})
 })
 
+apiRouter.get('/ops', (req, res) => {
+	res.send({
+		status: 'ok',
+		ops: Object.keys(calculate.ops).map(opName => {
+			return {
+				name: opName,
+				args: calculate.ops[opName].args
+			}
+		})
+	})
+})
+
 module.exports = apiRouter
